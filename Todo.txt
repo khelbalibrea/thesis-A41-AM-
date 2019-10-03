@@ -1,0 +1,14 @@
+- CRUD for College in admin user
+- CRUD for Course in admin user
+- Clean Forgot Password
+
+sean-home/search
+
+Intro/Title Defense/Project Context-sean
+purpose/Objective- khel
+Scope and limitations-jas
+Foreign/local literature-jas/matt
+Foreign/local studies-sean/khel
+block diagram -matt
+system presentation
+
