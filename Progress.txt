@@ -1,0 +1,6 @@
+Version01:
+- added crud to colleges (khel)
+- added crud to course (khel)
+
+Todo:
+- improve 'forgot password'
