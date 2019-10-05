@@ -4,6 +4,7 @@
 			require 'connection.php';
 			// FOR DATA RETENTION PURPOSE, INCASE USERNAME IS INVALID!
 			$Firstname = "";
+			$SchoolID = "";
 			$Middlename = "";
 			$Lastname = "";
 			$Gender = "";
@@ -12,9 +13,7 @@
 			$RecoveryQuestion = "";
 			$RecoveryAnswer = "";
 			if(isset($_POST['btn-submit'])){
-			
-			
-											
+											$SchoolID = $_POST["Sid"];
 											$Firstname = $_POST["Fname"];
 											$Middlename = $_POST["Mname"];
 											$Lastname = $_POST["Lname"];
@@ -34,15 +33,20 @@
 											$History_Date = date('Y-M-d');
 											
 											$query = mysqli_query($connection, "SELECT * FROM account WHERE username='$Username'");
+											$query2 = mysqli_query($connection, "SELECT * FROM account WHERE schoolid='$SchoolID'");
 			
 											$count = mysqli_num_rows($query);
+											$count2 = mysqli_num_rows($query2);
 											
 											if ($count > 0){
 											echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
+											}
+											elseif($count2 > 0){
+											echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
 											}else{
 											//Registration
-											mysqli_query($connection, "INSERT INTO account(firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee)
-												VALUES('$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
+											mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee)
+												VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
 											//History Activity
 											mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date)
 														VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
@@ -148,6 +152,8 @@
 					<h6 style="font-weight: bold; font-family: georgia;">STUDENT INFORMATION</h6>
 					
 					
+					<input type="text" class="input"  placeholder="School ID" name="Sid" autocomplete="on" required maxlength="50" minlength="2" value="<?php echo $SchoolID; ?>"/>
+					<br>
 					<input type="text" class="input"  placeholder="First Name" name="Fname" autocomplete="on" required maxlength="50" minlength="2" value="<?php echo $Firstname; ?>"/>
 					<br>
 					<input type="text" class="input" placeholder="Middle Name" name="Mname" autocomplete="on" required maxlength="50" minlength="2" value="<?php echo $Middlename; ?>"/>

@@ -2,5 +2,8 @@ Version01:
 - added crud to colleges (khel)
 - added crud to course (khel)
 
+Version02: (Oct. 5)
+- clean forgot password (khel)
+
 Todo:
-- improve 'forgot password'
+- improve 'forgot password' (done)

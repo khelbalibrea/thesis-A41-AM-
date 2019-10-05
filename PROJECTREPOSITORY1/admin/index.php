@@ -41,8 +41,6 @@
 							</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> PROJECT REPOSITORY SYSTEM</a></div>
 						<div class="collapse navbar-collapse" id="navcol-1">
 							<ul class="nav navbar-nav navbar-right">
-						  
-							   
 							   <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a>
 											<ul class="dropdown-menu" role="menu">
 												<li><a href="admin_cbm.php?"><i class="fa fa-fw fa-file"></i> CBM</a></li>

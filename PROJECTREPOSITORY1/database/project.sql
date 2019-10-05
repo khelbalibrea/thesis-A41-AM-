@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2019 at 04:36 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.1.12
+-- Generation Time: Oct 05, 2019 at 06:40 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `ID` int(11) NOT NULL,
+  `schoolid` varchar(50) NOT NULL,
   `firstname` varchar(250) NOT NULL,
   `middlename` varchar(250) NOT NULL,
   `lastname` varchar(250) NOT NULL,
@@ -49,11 +48,52 @@ CREATE TABLE `account` (
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`ID`, `firstname`, `middlename`, `lastname`, `gender`, `course`, `department`, `employee`, `recoveryquestion`, `recoveryanswer`, `username`, `password`, `userlevel`, `status`) VALUES
-(38, 'SGllZHk=', 'R2Fjb3N0YQ==', 'VWh1YWQ=', 'RmVtYWxl', 'Ti9B', 'Q29sbGVnZSBvZiBBcnRzICYgU2NpZW5jZQ==', 'VGFndWlnIENpdHkgVW5pdmVyc2l0eSAoQWRtaW5pc3RyYXRvcik=', 'V2hhdCBpcyB5b3VyIHBldCBuYW1lPw==', 'YnVkaW5n', 'c2FtcGxl', 'c2FtcGxl', 'QURNSU5JU1RSQVRPUg==', 'QUNUSVZF'),
-(39, 'UmFzZGll', 'VHVyYWpp', 'S2FzaW0=', 'TWFsZQ==', 'Ti9B', 'Q29sbGVnZSBvZiBUZWNobm9sb2d5ICYgRW5naW5lZXJpbmc=', 'VGFndWlnIENpdHkgVW5pdmVyc2l0eSAoQWRtaW5pc3RyYXRvcik=', 'V2hhdCBpcyB5b3VyIG1vdGhlcnMgbmFtZT8=', 'TGluZGEgS2FzaW0=', 'YWRtaW4=', 'YWRtaW4=', 'QURNSU5JU1RSQVRPUg==', 'QUNUSVZF'),
-(40, 'TGVlIEpvY2Vm', 'QmFsdGF6YXI=', 'Qm95bw==', 'TWFsZQ==', 'QlMgaW4gSW5mb3JtYXRpb24gU3lzdGVt', 'Q29sbGVnZSBvZiBJbmZvcm1hdGlvbiBDb21wdXRlciBUZWNobm9sb2d5', 'VGFndWlnIENpdHkgVW5pdmVyc2l0eSAoQ2xpZW50KQ==', 'V2hhdCBpcyB5b3VyIGZhdGhlcnMgbmFtZT8=', 'dGFydWI=', 'dGFydWI=', 'dGFydWI=', 'Q0xJRU5U', 'QUNUSVZF'),
-(41, 'UmVuYXRvIA==', 'RGVIaXRh', 'TWlyYWxsZXM=', 'TWFsZQ==', 'Ti9B', 'Q29sbGVnZSBvZiBJbmZvcm1hdGlvbiBDb21wdXRlciBUZWNobm9sb2d5', 'VGFndWlnIENpdHkgVW5pdmVyc2l0eSAoQWRtaW5pc3RyYXRvcik=', 'V2hhdCBpcyB5b3VyIHBldCBuYW1lPw==', 'YnVkaW5n', 'c3RhZmY=', 'c3RhZmY=', 'U1RBRkY=', 'QUNUSVZF');
+INSERT INTO `account` (`ID`, `schoolid`, `firstname`, `middlename`, `lastname`, `gender`, `course`, `department`, `employee`, `recoveryquestion`, `recoveryanswer`, `username`, `password`, `userlevel`, `status`) VALUES
+(1, '16-00706', 'Joanna Sean', 'Valiente', 'Gabriel', 'Female', 'BS in Computer Science', 'College of Information Computer Technology', 'Taguig City University (Administrator)', 'What is your favorite movie?', 'iron man', 'admin', 'admin', 'ADMINISTRATOR', 'ACTIVE'),
+(2, '16-00384-T', 'Michael', 'Nojor', 'Balibrea', 'Male', 'BS in Computer Science', 'College of Information Computer Technology', 'Taguig City University (Administrator)', 'What is your favorite movie?', 'iron man', 'admin2', 'admin2', 'ADMINISTRATOR', 'ACTIVE'),
+(3, '15-03056', 'Lance Matthew', 'Refugio', 'Dungca', 'Male', 'BS in Computer Science', 'College of Information Computer Technology', 'Taguig City University (Client)', 'What is your fathers name?', 'gary', 'client', 'client', 'CLIENT', 'ACTIVE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `college`
+--
+
+CREATE TABLE `college` (
+  `id` int(10) NOT NULL,
+  `collegename` varchar(100) NOT NULL,
+  `collegecode` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `college`
+--
+
+INSERT INTO `college` (`id`, `collegename`, `collegecode`) VALUES
+(1, 'College of Information and Communication Technology', 'CICT'),
+(2, 'College of Business Management', 'CBM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `course`
+--
+
+CREATE TABLE `course` (
+  `id` int(10) NOT NULL,
+  `coursename` varchar(100) NOT NULL,
+  `coursecode` varchar(10) NOT NULL,
+  `college` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`id`, `coursename`, `coursecode`, `college`) VALUES
+(1, 'Course1', 'CRS', 'Course'),
+(2, 'Course2', 'CRS2', 'College of Information and Communication Technology'),
+(3, 'Bachelor of Science in Computer Science', 'BSCS', 'College of Information and Communication Technology');
 
 -- --------------------------------------------------------
 
@@ -74,6 +114,13 @@ CREATE TABLE `document` (
   `date_uploaded` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `document`
+--
+
+INSERT INTO `document` (`ID`, `firstname`, `middlename`, `lastname`, `course`, `department`, `project_type`, `description`, `file`, `date_uploaded`) VALUES
+(5, 'John', 'Crusaldo', 'Cruz', 'BS in Computer Science', 'College of Information Computer Technology', 'Thesis', 'Android', '5d940843d08642.99553605.pdf', '2019-10-02');
+
 -- --------------------------------------------------------
 
 --
@@ -92,6 +139,23 @@ CREATE TABLE `history` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`ID`, `firstname`, `middlename`, `lastname`, `description`, `status`, `operation`, `date`) VALUES
+(24, 'de', 'de', 'de', 'NEW REGISTERED USER', '1', 'SIGN UP', '2019-Oct-02'),
+(25, 'khel', 'khel', 'khel', 'NEW REGISTERED ADMINISTRATOR', '1', 'ADDED', '2019-Oct-02'),
+(26, 'client1', 'cl', 'cleint', 'NEW REGISTERED USER', '1', 'SIGN UP', '2019-Oct-02'),
+(27, 'de', 'de', 'de', 'JOHN CRUZ - BS IN COMPUTER SCIENCE - PROJECT DOCUMENT', '1', 'VVBMT0FE', '2019-Oct-02'),
+(28, 'Admin', 'Midname', 'Last', 'QURNSU5JU1RSQVRPUiBJTkZPUk1BVElPTiBDSEFOR0VE', '1', 'VVBEQVRF', '2019-Oct-05'),
+(29, 'Admin', 'Midname', 'User', 'QURNSU5JU1RSQVRPUiBJTkZPUk1BVElPTiBDSEFOR0VE', '1', 'VVBEQVRF', '2019-Oct-05'),
+(30, 'Joanna Sean', 'Valiente', 'Gabriel', 'NEW REGISTERED USER', '1', 'SIGN UP', '2019-Oct-05'),
+(31, 'Michael', 'Nojor', 'Balibrea', 'NEW REGISTERED USER', '1', 'SIGN UP', '2019-Oct-05'),
+(32, 'Lance Matthew', 'Refugio', 'Dungca', 'NEW REGISTERED USER', '1', 'SIGN UP', '2019-Oct-05'),
+(33, 'Lance Matthew', 'Refugio', 'Dungca', 'NEW REGISTERED USER', '1', 'SIGN UP', '2019-Oct-05'),
+(34, 'Lance Matthew', 'Refugio', 'Dungca', 'NEW REGISTERED USER', '1', 'SIGN UP', '2019-Oct-05');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -100,6 +164,18 @@ CREATE TABLE `history` (
 --
 ALTER TABLE `account`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `college`
+--
+ALTER TABLE `college`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `document`
@@ -121,21 +197,27 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `college`
+--
+ALTER TABLE `college`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `course`
+--
+ALTER TABLE `course`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `document`
 --
 ALTER TABLE `document`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-COMMIT;
-
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

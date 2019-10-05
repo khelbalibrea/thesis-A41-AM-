@@ -33,6 +33,11 @@
 			width: 70%;
 			}
 			
+		#id{
+			margin-top: 10px;
+			width: 70%;
+			}
+			
 		.bg-modal{
 			width: 100%;
 			Height: 100%;
@@ -74,6 +79,8 @@
 			
 			<img src="assets/img/recovery.png" width="18%"><br>
 			
+		<input type="text" name="SchoolID" id="id" class="input-lg" placeholder="Enter your School ID" required maxlength="30" minlength="2" />
+			
 		<select name="RecoveryQuestion" required class="input-lg" id="user">
 			<option name="RecoveryQuestion" value="">Recovery Question</option>
 			<option name="RecoveryQuestion" value="What is your favorite movie?">What is your favorite movie?</option>
@@ -97,15 +104,17 @@
 
 
 	if(isset($_POST['recover'])){
+	 $ID = $_POST['SchoolID'];
 	 $RecoverQuestion = $_POST['RecoveryQuestion'];
 	 $RecoverAnswer = $_POST['RecoveryAnswer'];
 
-	$get_record = mysqli_query($connection, "SELECT * FROM account WHERE recoveryquestion='$RecoverQuestion' AND recoveryanswer='$RecoverAnswer'");
+	$get_record = mysqli_query($connection, "SELECT * FROM account WHERE schoolid='$ID' AND recoveryquestion='$RecoverQuestion' AND recoveryanswer='$RecoverAnswer'");
 
 				  $get_record_num = mysqli_num_rows($get_record);
 
 				  if ($get_record_num > 0){
 			  while ($row = mysqli_fetch_assoc($get_record)){
+					  $db_id = $row["schoolid"];
 					  $db_RQ = $row["recoveryquestion"];
 					  $db_RA = $row["recoveryanswer"];
 					  $db_Username = $row["username"];

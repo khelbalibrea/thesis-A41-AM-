@@ -1,6 +1,6 @@
-- CRUD for College in admin user
-- CRUD for Course in admin user
-- Clean Forgot Password
+- CRUD for College in admin user (done)
+- CRUD for Course in admin user (done)
+- Clean Forgot Password (done)
 
 sean-home/search
 
