@@ -13,13 +13,14 @@
 			$RecoveryAnswer = "";
 			
 			if(isset($_POST['btn-submit'])){
-				$SchoolID = $_POST["sid"];
+				$SchoolID = strtoupper($_POST["sid"]);
 				//substr(string, start, length)
 					$userid1 = substr($SchoolID, 0, 2); //16
 					$userid2 = substr($SchoolID, 2, 1); //-
 					$userid3 = substr($SchoolID, 3, 5); //00384
 					$userid4 = substr($SchoolID, 8, 1);	//-
 					$userid5 = substr($SchoolID, 9, 1); //T
+					$idlength = strlen($SchoolID);
 				$Firstname = $_POST["Fname"];
 				$Middlename = $_POST["Mname"];
 				$Lastname = $_POST["Lname"];
@@ -44,8 +45,10 @@
 				$count = mysqli_num_rows($query);
 				$count2 = mysqli_num_rows($query2);
 				
-				if(is_numeric($userid1)==true && $userid2=='-' && is_numeric($userid3)==true){
-					if(is_null($userid4)==false && is_null($userid5)==false){
+				if($idlength==9){
+					echo '<script>alert("INVALID ID!");</script>';
+				} elseif($idlength==10){
+					if(is_numeric($userid1)==true && $userid2=='-' && is_numeric($userid3)==true){
 						if($userid4=='-' && ($userid5=='T' || $userid5=='t')){
 							if ($count > 0){
 								echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
@@ -66,12 +69,33 @@
 						} else {
 							echo '<script>alert("INVALID ID!");</script>';
 						}
-					} else {
-						echo '<script>alert("INVALID ID!");</script>';
-					}
 				} else {
 					echo '<script>alert("INVALID ID!");</script>';
 				}
+				
+				} elseif($idlength==8){
+					if(is_numeric($userid1)==true && $userid2=='-' && is_numeric($userid3)==true){
+							if ($count > 0){
+								echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
+							} elseif($count2 > 0){
+								echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
+							} else {
+								//Registration
+								mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee) 
+									VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
+					
+								//History Activity
+								mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
+									VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
+					
+								echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
+								echo'<script>window.location.replace("index.php?");</script>';
+							}
+				} else {
+					echo '<script>alert("INVALID ID!");</script>';
+				}
+				}
+				
 				
 				
 				
