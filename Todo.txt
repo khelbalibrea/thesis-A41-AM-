@@ -10,3 +10,5 @@ o middlename should not accept numbers and other symbols
 o lastname should not accept numbers and other symbols
 o school id correct format (16-00384-T) for student
 x check id format for staff
+x create masterlist db; compare the registerid to the masterlist id
+x "enter id" textbox only in registration
