@@ -46,29 +46,35 @@
 				
 				if(is_numeric($userid1)==true && $userid2=='-' && is_numeric($userid3)==true){
 					if(is_null($userid4)==false && is_null($userid5)==false){
-						if($userid4=='-' && is_numeric($userid5==false)){
-							
+						if($userid4=='-' && ($userid5=='T' || $userid5=='t')){
+							if ($count > 0){
+								echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
+							} elseif($count2 > 0){
+								echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
+							} else {
+								//Registration
+								mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee) 
+									VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
+					
+								//History Activity
+								mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
+									VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
+					
+								echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
+								echo'<script>window.location.replace("index.php?");</script>';
+							}
+						} else {
+							echo '<script>alert("INVALID ID!");</script>';
 						}
+					} else {
+						echo '<script>alert("INVALID ID!");</script>';
 					}
-				}
-				
-				
-				if ($count > 0){
-					echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
-				} elseif($count2 > 0){
-					echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
 				} else {
-					//Registration
-					mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee) 
-						VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
-					
-					//History Activity
-					mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
-						VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
-					
-					echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
-					echo'<script>window.location.replace("index.php?");</script>';
+					echo '<script>alert("INVALID ID!");</script>';
 				}
+				
+				
+				
 			}
 ?>
 

@@ -4,8 +4,9 @@
 
 sean-home/search
 
-DATA INTEGRITY: 3/4 done
+DATA INTEGRITY: 4/5 done
 o firstname should not accept numbers and other symbols
 o middlename should not accept numbers and other symbols
 o lastname should not accept numbers and other symbols
-x school id correct format (16-00384-T)
+o school id correct format (16-00384-T) for student
+x check id format for staff
