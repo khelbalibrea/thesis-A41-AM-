@@ -80,7 +80,7 @@
 								<head>
 									<meta charset="utf-8">
 									<meta name="viewport" content="width=device-width, initial-scale=1.0">
-									<title>Project Repository Management System</title>
+									<title>Thesis Repository Management System</title>
 									<?php
 									require '../zxc.php';
 									?>
@@ -137,7 +137,7 @@
 										<div class="container-fluid">
 											<div class="navbar-header">
 												<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-												</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> PROJECT REPOSITORY SYSTEM</a></div>
+												</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> THESIS REPOSITORY SYSTEM</a></div>
 										  </div></nav>
 										  <h4 style="font-family: Georgia; margin-bottom: 2%;"><b><center><i class="fa fa-file-pdf-o"></i> PROJECT DETAILS</center></b></h4>
 										<center><form method="POST" enctype="multipart/form-data">

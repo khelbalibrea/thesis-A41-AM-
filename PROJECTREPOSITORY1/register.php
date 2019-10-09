@@ -1,8 +1,7 @@
-
-			<?php
-		
-			require 'connection.php';
-			// FOR DATA RETENTION PURPOSE, INCASE USERNAME IS INVALID!
+<?php
+	require 'connection.php';
+	
+	// FOR DATA RETENTION PURPOSE, INCASE USERNAME IS INVALID!
 			$Firstname = "";
 			$SchoolID = "";
 			$Middlename = "";
@@ -12,52 +11,66 @@
 			$Department = "";
 			$RecoveryQuestion = "";
 			$RecoveryAnswer = "";
+			
 			if(isset($_POST['btn-submit'])){
-											$SchoolID = $_POST["Sid"];
-											$Firstname = $_POST["Fname"];
-											$Middlename = $_POST["Mname"];
-											$Lastname = $_POST["Lname"];
-											$Gender = $_POST["Gender"];
-											$Course = $_POST["Course"];
-											$Department = $_POST["Department"];				
-											$Username = $_POST["Username"];
-											$Password = $_POST["Password"];
-											$RecoveryQuestion = $_POST["RecoveryQuestion"];
-											$RecoveryAnswer = $_POST["RecoveryAnswer"];
-											$Userlevel = $_POST["Userlevel"];
-											$Status = $_POST["Status"];
-											$Employee = $_POST["Employee"];
-											$History_Description = $_POST['History_Description'];
-											$History_Status = $_POST['History_Status'];
-											$History_Operation = $_POST['History_Operation'];
-											$History_Date = date('Y-M-d');
-											
-											$query = mysqli_query($connection, "SELECT * FROM account WHERE username='$Username'");
-											$query2 = mysqli_query($connection, "SELECT * FROM account WHERE schoolid='$SchoolID'");
-			
-											$count = mysqli_num_rows($query);
-											$count2 = mysqli_num_rows($query2);
-											
-											if ($count > 0){
-											echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
-											}
-											elseif($count2 > 0){
-											echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
-											}else{
-											//Registration
-											mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee)
-												VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
-											//History Activity
-											mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date)
-														VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
-												
-													echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
-													echo'<script>window.location.replace("index.php?");</script>';
-													
+				$SchoolID = $_POST["sid"];
+				//substr(string, start, length)
+					$userid1 = substr($SchoolID, 0, 2); //16
+					$userid2 = substr($SchoolID, 2, 1); //-
+					$userid3 = substr($SchoolID, 3, 5); //00384
+					$userid4 = substr($SchoolID, 8, 1);	//-
+					$userid5 = substr($SchoolID, 9, 1); //T
+				$Firstname = $_POST["Fname"];
+				$Middlename = $_POST["Mname"];
+				$Lastname = $_POST["Lname"];
+				$Gender = $_POST["Gender"];
+				$Course = $_POST["Course"];
+				$Department = $_POST["Department"];
+				$Username = $_POST["Username"];
+				$Password = $_POST["Password"];
+				$RecoveryQuestion = $_POST["RecoveryQuestion"];
+				$RecoveryAnswer = $_POST["RecoveryAnswer"];
+				$Userlevel = $_POST["Userlevel"];
+				$Status = $_POST["Status"];
+				$Employee = $_POST["Employee"];
+				$History_Description = $_POST['History_Description'];
+				$History_Status = $_POST['History_Status'];
+				$History_Operation = $_POST['History_Operation'];
+				$History_Date = date('Y-M-d');
+				
+				$query = mysqli_query($connection, "SELECT * FROM account WHERE username='$Username'");
+				$query2 = mysqli_query($connection, "SELECT * FROM account WHERE schoolid='$SchoolID'");
+				
+				$count = mysqli_num_rows($query);
+				$count2 = mysqli_num_rows($query2);
+				
+				if(is_numeric($userid1)==true && $userid2=='-' && is_numeric($userid3)==true){
+					if(is_null($userid4)==false && is_null($userid5)==false){
+						if($userid4=='-' && is_numeric($userid5==false)){
+							
+						}
+					}
+				}
+				
+				
+				if ($count > 0){
+					echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
+				} elseif($count2 > 0){
+					echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
+				} else {
+					//Registration
+					mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee) 
+						VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
+					
+					//History Activity
+					mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
+						VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
+					
+					echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
+					echo'<script>window.location.replace("index.php?");</script>';
+				}
 			}
-			
-	}
-			?>
+?>
 
 
 
@@ -134,6 +147,11 @@
 						return false;
 				}
 				
+				function letterOnly(input){
+					var regex = /[^a-z ]/gi;
+					input.value = input.value.replace(regex, "");
+				}
+				
 				</script>
 				
 			</head>
@@ -152,13 +170,13 @@
 					<h6 style="font-weight: bold; font-family: georgia;">STUDENT INFORMATION</h6>
 					
 					
-					<input type="text" class="input"  placeholder="School ID" name="Sid" autocomplete="on" required maxlength="50" minlength="2" value="<?php echo $SchoolID; ?>"/>
+					<input type="text" class="input"  placeholder="School ID" name="sid" autocomplete="on" required maxlength="10" minlength="8" value="<?php echo $SchoolID; ?>"/>
 					<br>
-					<input type="text" class="input"  placeholder="First Name" name="Fname" autocomplete="on" required maxlength="50" minlength="2" value="<?php echo $Firstname; ?>"/>
+					<input type="text" class="input"  placeholder="First Name" name="Fname" autocomplete="on" onkeyup="letterOnly(this)" required maxlength="50" minlength="2" value="<?php echo $Firstname; ?>"/>
 					<br>
-					<input type="text" class="input" placeholder="Middle Name" name="Mname" autocomplete="on" required maxlength="50" minlength="2" value="<?php echo $Middlename; ?>"/>
+					<input type="text" class="input" placeholder="Middle Name" name="Mname" autocomplete="on" onkeyup="letterOnly(this)" required maxlength="50" minlength="2" value="<?php echo $Middlename; ?>"/>
 					<br>
-					<input type="text" class="input" placeholder="Last Name" name="Lname" autocomplete="on" required maxlength="50" minlength="2" value="<?php echo $Lastname; ?>"/>
+					<input type="text" class="input" placeholder="Last Name" name="Lname" autocomplete="on" onkeyup="letterOnly(this)" required maxlength="50" minlength="2" value="<?php echo $Lastname; ?>"/>
 					<br>
 					<select class="input" required name="Gender">
 

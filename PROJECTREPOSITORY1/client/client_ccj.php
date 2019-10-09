@@ -23,7 +23,7 @@
 									<head>
 										<meta charset="utf-8">
 										<meta name="viewport" content="width=device-width, initial-scale=1.0">
-										<title>Project Repository Management System</title>
+										<title>Thesis Repository Management System</title>
 										<?php
 										require '../zxc.php';
 										?>
@@ -44,7 +44,7 @@
 														<span class="icon-bar"></span>
 														<span class="icon-bar"></span>
 														<span class="icon-bar"></span>
-													</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> PROJECT REPOSITORY SYSTEM</a></div>
+													</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> THESIS REPOSITORY SYSTEM</a></div>
 													 <div class="collapse navbar-collapse" id="navcol-1">
 													<ul class="nav navbar-nav navbar-right">
 												  
@@ -64,7 +64,7 @@
 															<ul class="dropdown-menu" role="menu">
 																<li><a href="client_profile.php?"><i class="fa fa-fw fa-user"></i> Profile</a></li>
 																<li><a href="client_setting.php?"><i class="fa fa-fw fa-gear"></i> Account Settings</a></li>
-																<li><a href="http://facebook.com/Rasdie.07"><i class="fa fa-fw fa-code"></i> Developer</a></li>
+																<li><a href="http://facebook.com/"><i class="fa fa-fw fa-code"></i> Developer</a></li>
 																<li><a href="../logout.php?" name="logout" onclick="return confirm(' ARE YOU SURE YOU WANT TO LOGOUT ?')"><i class="fa fa-fw fa-sign-out"></i> Logout </a></li>
 															</ul>
 														</li>

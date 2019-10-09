@@ -4,11 +4,8 @@
 
 sean-home/search
 
-Intro/Title Defense/Project Context-sean
-purpose/Objective- khel
-Scope and limitations-jas
-Foreign/local literature-jas/matt
-Foreign/local studies-sean/khel
-block diagram -matt
-system presentation
-
+DATA INTEGRITY: 3/4 done
+o firstname should not accept numbers and other symbols
+o middlename should not accept numbers and other symbols
+o lastname should not accept numbers and other symbols
+x school id correct format (16-00384-T)
