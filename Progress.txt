@@ -1,9 +1,13 @@
-Version01:
+Change01:
 - added crud to colleges (khel)
 - added crud to course (khel)
 
-Version02: (Oct. 5)
+Change02: (Oct. 5)
 - clean forgot password (khel)
+
+Change03: (Oct. 12)
+- added masterlist in database
+- registration of student via masterlist
 
 Todo:
 - improve 'forgot password' (done)

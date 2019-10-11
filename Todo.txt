@@ -1,14 +1,24 @@
-- CRUD for College in admin user (done)
-- CRUD for Course in admin user (done)
-- Clean Forgot Password (done)
+- CRUD for College in admin user (ok)
+- CRUD for Course in admin user (ok)
+- Clean Forgot Password
+- add different users (staff and students)
+- insertion one data storage(College)
 
-sean-home/search
+- user id as username in login
 
-DATA INTEGRITY: 4/5 done
+- pending registration (no approval, registered once data match)
+- pending abstract
+
+- uploaded file should have (citation, abstact, keywords)
+
+
+DATA INTEGRITY: 5/9 done
 o firstname should not accept numbers and other symbols
 o middlename should not accept numbers and other symbols
 o lastname should not accept numbers and other symbols
 o school id correct format (16-00384-T) for student
 x check id format for staff
-x create masterlist db; compare the registerid to the masterlist id
+o create masterlist db; compare the registerid to the masterlist id
 x "enter id" textbox only in registration
+x remove username
+x extension name
