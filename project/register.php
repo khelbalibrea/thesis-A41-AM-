@@ -6,11 +6,18 @@
 			$SchoolID = "";
 			$Middlename = "";
 			$Lastname = "";
+			$Extname = "";
 			$Gender = "";
 			$Course = "";
 			$Department = "";
 			$RecoveryQuestion = "";
 			$RecoveryAnswer = "";
+			
+			$mlId = "";
+			$mlFname = "";
+			$mlMname = "";
+			$mlLname = "";
+			$mlEname = "";
 			
 			if(isset($_POST['btn-submit'])){
 				$SchoolID = strtoupper($_POST["sid"]);
@@ -24,47 +31,55 @@
 				$Firstname = $_POST["Fname"];
 				$Middlename = $_POST["Mname"];
 				$Lastname = $_POST["Lname"];
+				$Extname = $_POST["Ename"];
 				$Gender = $_POST["Gender"];
 				$Course = $_POST["Course"];
 				$Department = $_POST["Department"];
-				$Username = $_POST["Username"];
 				$Password = $_POST["Password"];
 				$RecoveryQuestion = $_POST["RecoveryQuestion"];
 				$RecoveryAnswer = $_POST["RecoveryAnswer"];
-				$Userlevel = $_POST["Userlevel"];
 				$Status = $_POST["Status"];
-				$Employee = $_POST["Employee"];
 				$History_Description = $_POST['History_Description'];
 				$History_Status = $_POST['History_Status'];
 				$History_Operation = $_POST['History_Operation'];
 				$History_Date = date('Y-M-d');
 				
-				$query = mysqli_query($connection, "SELECT * FROM account WHERE username='$Username'");
-				$query2 = mysqli_query($connection, "SELECT * FROM account WHERE schoolid='$SchoolID'");
+				$check = mysqli_query($connection, "SELECT * FROM masterlist WHERE studentid='$SchoolID'");
+				$query2 = mysqli_query($connection, "SELECT * FROM studentaccount WHERE studentid='$SchoolID'");
 				
-				$count = mysqli_num_rows($query);
+				$count = mysqli_num_rows($check);
 				$count2 = mysqli_num_rows($query2);
+				
+				while($row = mysqli_fetch_array($check)){
+					$mlId = $row['studentid'];
+					$mlFname = $row['firstname'];
+					$mlMname = $row['middlename'];
+					$mlLname = $row['lastname'];
+					$mlEname = $row['extname'];
+				}
 				
 				if($idlength==9){
 					echo '<script>alert("INVALID ID!");</script>';
 				} elseif($idlength==10){
 					if(is_numeric($userid1)==true && $userid2=='-' && is_numeric($userid3)==true){
 						if($userid4=='-' && ($userid5=='T' || $userid5=='t')){
-							if ($count > 0){
-								echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
-							} elseif($count2 > 0){
+							if($count2 > 0){
 								echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
 							} else {
-								//Registration
-								mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee) 
-									VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
+								if($SchoolID==$mlId && $Firstname==$mlFname && $Middlename==$mlMname && $Lastname==$mlLname && $Extname==$mlEname){
+									//Registration
+									mysqli_query($connection, "INSERT INTO studentaccount (studentid,firstname,middlename,lastname,extname,gender,course,department,recoveryquestion,recoveryanswer,password,status) 
+										VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Extname','$Gender','$Course','$Department','$RecoveryQuestion','$RecoveryAnswer','$Password','$Status')");
 					
-								//History Activity
-								mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
-									VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
+									//History Activity
+									mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
+										VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
 					
-								echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
-								echo'<script>window.location.replace("index.php?");</script>';
+									echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
+									echo'<script>window.location.replace("index.php?");</script>';
+								} else {
+									echo '<script>alert("DATA INPUTTED DIDN\'T MATCH THE RECORD!");</script>';
+								}
 							}
 						} else {
 							echo '<script>alert("INVALID ID!");</script>';
@@ -75,21 +90,23 @@
 				
 				} elseif($idlength==8){
 					if(is_numeric($userid1)==true && $userid2=='-' && is_numeric($userid3)==true){
-							if ($count > 0){
-								echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
-							} elseif($count2 > 0){
+							if($count2 > 0){
 								echo '<script>alert("SCHOOL ID TAKEN!!");</script>';
 							} else {
-								//Registration
-								mysqli_query($connection, "INSERT INTO account(schoolid,firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee) 
-									VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
+								if($SchoolID==$mlId && $Firstname==$mlFname && $Middlename==$mlMname && $Lastname==$mlLname && $Extname==$mlEname){
+									//Registration
+									mysqli_query($connection, "INSERT INTO studentaccount (studentid,firstname,middlename,lastname,extname,gender,course,department,recoveryquestion,recoveryanswer,password,status) 
+										VALUES('$SchoolID','$Firstname','$Middlename','$Lastname','$Extname','$Gender','$Course','$Department','$RecoveryQuestion','$RecoveryAnswer','$Password','$Status')");
 					
-								//History Activity
-								mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
-									VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
+									//History Activity
+									mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date) 
+										VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
 					
-								echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
-								echo'<script>window.location.replace("index.php?");</script>';
+									echo '<script>alert("NEW ACCOUNT ADDED !");</script>';
+									echo'<script>window.location.replace("index.php?");</script>';
+								} else {
+									echo '<script>alert("DATA INPUTTED DIDN\'T MATCH THE RECORD!");</script>';
+								}
 							}
 				} else {
 					echo '<script>alert("INVALID ID!");</script>';
@@ -208,6 +225,8 @@
 					<br>
 					<input type="text" class="input" placeholder="Last Name" name="Lname" autocomplete="on" onkeyup="letterOnly(this)" required maxlength="50" minlength="2" value="<?php echo $Lastname; ?>"/>
 					<br>
+					<input type="text" class="input" placeholder="Extension Name (If have)" name="Ename" autocomplete="on" onkeyup="letterOnly(this)" maxlength="50" minlength="2" value="<?php echo $Extname; ?>"/>
+					<br>
 					<select class="input" required name="Gender">
 
 							<option name="Gender" value="">Gender</option>
@@ -243,8 +262,6 @@
 							 
 					<br>
 					<h6 style="font-weight: bold; font-family: georgia;">ACCOUNT INFORMATION</h6>
-					<input type="text" class="input" placeholder="Username" name="Username" autocomplete="on" required maxlength="20" minlength="3"/>
-					<br>
 					<input type="password" class="input" placeholder="Password" name="Password" autocomplete="on" required maxlength="20" minlength="3"/>
 					<br>
 					
@@ -260,11 +277,9 @@
 				<input type="text" class="input" placeholder="Recovery Answer"  name="RecoveryAnswer" required maxlength="30" minlength="2" value="<?php echo $RecoveryAnswer; ?>"/>
 					<br>
 					
-					<input type="hidden" name="Userlevel" value="CLIENT"/>
 					<input type="hidden" name="History_Description" value="NEW REGISTERED USER"/>
 					<input type="hidden" name="History_Operation" value="SIGN UP"/>
 					<input type="hidden" name="History_Status" value="1"/>
-					<input type="hidden" name="Employee" value="Taguig City University (Client)"/>
 					<input type="hidden" name="Status" value="ACTIVE"/>
 						
 					<input id="btn-reg" class="btn btn-primary btn-medium" type="submit" name="btn-submit" value="Submit">

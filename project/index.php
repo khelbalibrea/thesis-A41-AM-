@@ -47,7 +47,7 @@ width: 70%;
 		<br>
 		<input id="btn" class="btn btn-primary btn-lg" type="submit" name="btn-submit" value="Log In"><br>
 		<a class="links"style="font-weight: bold;" href="account_retrieval.php?"><i>Forgot Password?</i></a> <br>
-		<a class="links" style="font-weight: bold;" href="register.php?"><i>Create Account</i></a>
+		<a class="links" style="font-weight: bold;" href="register.php?"><i>Register</i></a>
 		</form>  
 		
 		
