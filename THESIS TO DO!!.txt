@@ -1,0 +1,92 @@
+THESIS TO DO! 
+
+#Khel 7/11
+1.insertion one data storage(College)
+2.user id in login OK
+3.pending registration (masterlist) OK
+4.pending abstract
+5.uploaded file should have (citation, abstact, keywords)
+6.Sa bawat admin file andun ung name ni rasdie as developez redundant lahat
+7.4 User (Student,Author,Staff/Faculty,Admin)
+8.4 Indxes
+9.CRUD for College in admin user OK
+10.CRUD for Course in admin user OK
+11.Clean Forgot Password
+
+
+DATA INTEGRITY: 6/7 done
+o firstname should not accept numbers and other symbols
+o middlename should not accept numbers and other symbols
+o lastname should not accept numbers and other symbols
+o school id correct format (16-00384-T) for student
+x check id format for staff
+o create masterlist db; compare the registerid to the masterlist id
+o "enter id" textbox only in registration
+
+
+#Sean 
+Search Engine
+Design c/o Nielle
+
+#Jas 
+Create Logo
+IRIS - Create acronym name
+
+#Matthew
+get link citations
+
+DOCUMENTATION!!
+*get link citations
+*be specific in scope
+*Add up in Limitations
+*objectives 2-4 ligwak palitan 
+*-Visit sites thats under studies/literatures
+----
+ecopy? what kind of data analysis?
+type of analytics
+-viewes
+-most viited
+no of uploads
+no of thesis
+
+
+DO RESEARCH!
+
+*National Archiving of the philippines
+*DOST
+*IPO
+Do a Survey inside TCU
+Do a research in DOST about data analytics
+DATA ANALYTICS
+Patent,Archiving,Copyright,Intellectual Property
+-how long should a thesis properly kept in storage
+
+
+
+QUESTIONS:
+how we control the access?
+what data will the system going to analyze
+how the systemwill doit?
+Online connection?
+what are the tools/function that willworka these data alalytics?
+accesible to mobile?
+possible to store data using mobile?
+it is the same with gthub?
+
+TIPS!
+1. inssure of the author thatt his or her thesis cant be copied by anyone
+2.security in terms of copyright
+3.size management of files
+if local tend to manage storage
+4.cross flatform
+-browsers
+firefox
+chrome
+safari 
+edge
+5.responsive design?(MOBILE)
+
+
+
+
+
