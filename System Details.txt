@@ -1,0 +1,5 @@
+Student Id Format: 16-00384 or 16-00384-T
+Faculty Id Format: TCU-12416
+Author Id Format: AUT-00001
+Admin Id Format: ADM-01
+Users: Admin, Student, Author, Staff
