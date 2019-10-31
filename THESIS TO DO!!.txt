@@ -35,19 +35,22 @@ IRIS - Create acronym name
 #Matthew
 get link citations
 
-DOCUMENTATION!!
-*get link citations
-*be specific in scope
-*Add up in Limitations
-*objectives 2-4 ligwak palitan 
-*-Visit sites thats under studies/literatures
+DOCUMENTATION: 4/5 done
+
+o get link citations 
+o be specific in scope 
+x Add up in Limitations 
+o objectives 2-4 ligwak palitan 
+o Visit sites thats under studies/literatures
 ----
 ecopy? what kind of data analysis?
 type of analytics
--viewes
--most viited
-no of uploads
-no of thesis
+-viewed
+-most visited
+-no of uploads
+-no of thesis
+-no of collaborators
+-no of thesis co-authored by prof
 
 
 DO RESEARCH!
@@ -78,7 +81,7 @@ TIPS!
 2.security in terms of copyright
 3.size management of files
 if local tend to manage storage
-4.cross flatform
+4.cross platform
 -browsers
 firefox
 chrome
