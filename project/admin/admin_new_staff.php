@@ -94,17 +94,7 @@
 					<div class="collapse navbar-collapse" id="navcol-1">
 						<ul class="nav navbar-nav navbar-right">
 					  
-							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="admin_cbm.php?"><i class="fa fa-fw fa-file"></i> CBM</a></li>
-									<li><a href="admin_chtm.php?"><i class="fa fa-fw fa-file"></i> CHTM</a></li>
-									<li><a href="admin_cict.php?"><i class="fa fa-fw fa-file"></i> CICT</a></li>
-									<li><a href="admin_cte.php?"><i class="fa fa-fw fa-file"></i> CTE</a></li>
-									<li><a href="admin_cas.php?"><i class="fa fa-fw fa-file"></i> CAS</a></li>
-									<li><a href="admin_coe.php?"><i class="fa fa-fw fa-file"></i> COE</a></li>
-									<li><a href="admin_ccj.php?"><i class="fa fa-fw fa-file"></i> CCJ</a></li>
-								</ul>
-							</li>
+							<li class="dropdown"><a aria-expanded="false" href="admin_project_documents.php?"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a></li>
 							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" value=""><i class="fa fa-fw fa-id-badge"></i> ACCOUNT MANAGEMENT</a>
 										<ul class="dropdown-menu" role="menu">
 											<li><a href="admin_new_user.php?"><i class="fa fa-fw fa-user-plus"></i> New Administrator</a></li>

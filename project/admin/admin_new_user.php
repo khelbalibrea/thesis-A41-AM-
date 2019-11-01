@@ -21,8 +21,7 @@
 			$Firstname = "";
 			$Middlename = "";
 			$Lastname = "";
-			$Gender = "";
-			$Department = "";
+			$Gender = "";;
 			$RecoveryQuestion = "";
 			$RecoveryAnswer = "";
 			if(isset($_POST['btn-submit'])){
@@ -33,38 +32,31 @@
 											$Middlename = $_POST["Mname"];
 											$Lastname = $_POST["Lname"];
 											$Gender = $_POST["Gender"];
-											$Course = $_POST["Course"];
-											$Department = $_POST["Department"];				
-											$Username = $_POST["Username"];
 											$Password = $_POST["Password"];
 											$RecoveryQuestion = $_POST["RecoveryQuestion"];
 											$RecoveryAnswer = $_POST["RecoveryAnswer"];
 											$Userlevel = $_POST["Userlevel"];
 											$Status = $_POST["Status"];
-											$Employee = $_POST["Employee"];
 											$History_Description = $_POST['History_Description'];
 											$History_Status = $_POST['History_Status'];
 											$History_Operation = $_POST['History_Operation'];
 											$History_Date = date('Y-M-d');
 											
-											$query = mysqli_query($connection, "SELECT* FROM account WHERE username='$Username'");
+											$query = mysqli_query($conn, "SELECT * FROM adminaccount");
 			
 											$count = mysqli_num_rows($query);
 											
-											if ($count > 0){
-											echo '<script>alert("INVALID USERNAME, TRY ANOTHER !");</script>';
-											}else{
 											//Registration
-											mysqli_query($connection, "INSERT INTO account(firstname,middlename,lastname,gender,course,department,username,password,recoveryquestion,recoveryanswer,userlevel,status,employee)
-												VALUES('$Firstname','$Middlename','$Lastname','$Gender','$Course','$Department','$Username','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status','$Employee')");
+											mysqli_query($conn, "INSERT INTO adminaccount(adminid, firstname,middlename,lastname,gender,password,recoveryquestion,recoveryanswer,userlevel,status)
+												VALUES('ADM-0".($count+1)."','$Firstname','$Middlename','$Lastname','$Gender','$Password','$RecoveryQuestion','$RecoveryAnswer','$Userlevel','$Status')");
 											//History Activity
-											mysqli_query($connection,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date)
+											mysqli_query($conn,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date)
 														VALUES('$Firstname','$Middlename','$Lastname','$History_Description','$History_Status','$History_Operation','$History_Date')");
 												
 													echo '<script>alert("NEW ADMINISTRATOR ACCOUNT ADDED !");</script>';
 													echo'<script>window.location.replace("index.php?");</script>';
 													
-			}
+			
 			
 	}
 			?>
@@ -94,17 +86,7 @@
 					<div class="collapse navbar-collapse" id="navcol-1">
 						<ul class="nav navbar-nav navbar-right">
 					  
-							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a>
-								<ul class="dropdown-menu" role="menu">
-									<li><a href="admin_cbm.php?"><i class="fa fa-fw fa-file"></i> CBM</a></li>
-									<li><a href="admin_chtm.php?"><i class="fa fa-fw fa-file"></i> CHTM</a></li>
-									<li><a href="admin_cict.php?"><i class="fa fa-fw fa-file"></i> CICT</a></li>
-									<li><a href="admin_cte.php?"><i class="fa fa-fw fa-file"></i> CTE</a></li>
-									<li><a href="admin_cas.php?"><i class="fa fa-fw fa-file"></i> CAS</a></li>
-									<li><a href="admin_coe.php?"><i class="fa fa-fw fa-file"></i> COE</a></li>
-									<li><a href="admin_ccj.php?"><i class="fa fa-fw fa-file"></i> CCJ</a></li>
-								</ul>
-							</li>
+							<li class="dropdown"><a aria-expanded="false" href="admin_project_documents.php?"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a></li>
 							<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" value=""><i class="fa fa-fw fa-id-badge"></i> ACCOUNT MANAGEMENT</a>
 											<ul class="dropdown-menu" role="menu">
 												<li><a href="admin_new_user.php?"><i class="fa fa-fw fa-user-plus"></i> New Administrator</a></li>
@@ -152,25 +134,14 @@
 							<option name="Gender" value="">Gender</option>
 							<option name="Gender" <?php if($Gender == "Male"){ echo "selected";} ?> value="Male">Male</option>
 							<option name="Gender" <?php if($Gender == "Female"){ echo "selected";} ?> value="Female">Female</option>
-							<input type="hidden" name="Course" value="N/A">
+							
 							 </select> <br>
-						<select class="input" required name="Department">
-						 <option name="Department" value="">Department</option>
-						 <option name="Department" value="College of Technology & Engineering">College of Technology & Engineering</option>
-						 <option name="Department" value="College of Information Computer Technology">College of Information Computer Technology</option>
-						 <option name="Department" value="College of Education">College of Education</option>
-						 <option name="Department" value="College of Business Management">College of Business Management</option>
-						 <option name="Department" value="College of Arts & Science">College of Arts & Science</option>
-						 <option name="Department" value="College of Hotel Tourism Management">College of Hotel Tourism Management</option>
-						 <option name="Department" value="College of Criminal Justice">College of Criminal Justice</option>
-						</select>
+						
 							 
 							 
 							 
 					<br>
 					<h6 style="font-weight: bold; font-family: georgia;">ACCOUNT INFORMATION</h6>
-					<input type="text" class="input" placeholder="Username" name="Username" autocomplete="on" required maxlength="20" minlength="3"/>
-					<br>
 					<input type="password" class="input" placeholder="Password" name="Password" autocomplete="on" required maxlength="20" minlength="3"/>
 					<br>
 					

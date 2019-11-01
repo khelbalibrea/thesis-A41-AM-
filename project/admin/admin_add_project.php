@@ -15,7 +15,7 @@
 			</script>';
 				}
 						
-						 require '../connection.php';
+						 require '../conn.php';
 						
 
 						?>
@@ -29,7 +29,7 @@
 						<head>
 							<meta charset="utf-8">
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<title>Project Repository Management System</title>
+							<title>Thesis Repository Management System</title>
 							<?php
 							require '../zxc.php';
 							?>
@@ -86,10 +86,10 @@
 								<div class="container-fluid">
 									<div class="navbar-header">
 										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-										</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> PROJECT REPOSITORY SYSTEM</a></div>
+										</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> THESIS REPOSITORY SYSTEM</a></div>
 								  </div></nav>
-								  <h4 style="font-family: Georgia; margin-bottom: 2%;"><b><center><i class="fa fa-file-pdf-o"></i> NEW CICT PROJECT</center></b></h4>
-							 	<center><form  action="admin_cict_upload.php?" method="POST" enctype="multipart/form-data">
+								  <h4 style="font-family: Georgia; margin-bottom: 2%;"><b><center><i class="fa fa-file-pdf-o"></i> NEW DOCUMENT</center></b></h4>
+							 	<center><form  action="admin_cbm_upload.php?" method="POST" enctype="multipart/form-data">
 								<input type="text" class="input"  placeholder="Student First Name" name="Firstname" autocomplete="on" required maxlength="50" minlength="2"/>
 				<br>
 				<input type="text" class="input"  placeholder="Student Middle Name" name="Middlename" autocomplete="on" required maxlength="50" minlength="1"/>
@@ -97,14 +97,31 @@
 				<input type="text" class="input"  placeholder="Student Last Name" name="Lastname" autocomplete="on" required maxlength="50" minlength="2"/>
 				<br>
 						<select class="input" required name="Course">
-
+						
+						<?php
+							$query = mysqli_query($conn, "SELECT coursename FROM course");
+							
+							while($row = mysqli_fetch_array($query)){
+								?>
+								
+								<option>
+									<?php
+										echo $row["collegename"];?>
+								</option>
+								
+								<?php
+							}
+						?>
+						
+						<!--
 						<option name="Course" value="">Course</option>
-						<option name="Course" value="BS in Computer Science">BS in Computer Science</option>
-						<option name="Course" value="BS in Information System">BS in Information System</option>
-						<option name="Course" value="BS in Information Technology">BS in Information Technology</option>
+						<option name="Course" value="BS in Entrepreneurship">BS in Entrepreneurship</option>
+						<option name="Course" value="BS in Business Administration">BS in Business Administration</option>
+						<option name="Course" value="BS in Business Management">BS in Business Management</option>
+						<option name="Course" value="BS in Marketing Management">BS in Marketing Management</option> -->
 						 </select> <br>
 						 
-						 <input type="text" class="input"  placeholder="Department" name="Department" readonly autocomplete="on" value="College of Information Computer Technology" required maxlength="50" minlength="2"/>
+						 <input type="text" class="input"  placeholder="Department" name="Department" readonly autocomplete="on" value="College of Business Management" required maxlength="50" minlength="2"/>
 				<br>
 				
 						<select class="input" required name="Proj-type">
@@ -121,7 +138,7 @@
 					
 								<input type="file" class="input" name="file" accept=".pdf" required/><br>
 								<input id="btn-reg" class="btn btn-primary btn-medium" type="submit" name="submit" value="Submit">
-								<br><a id="btn-reg1" class="btn btn-success btn-medium" role="button" href="admin_cict.php?">Cancel</a>
+								<br><a id="btn-reg1" class="btn btn-success btn-medium" role="button" href="admin_cbm.php?">Cancel</a>
 								</form>
 								
 								

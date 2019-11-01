@@ -22,7 +22,7 @@
 		$new_RecoveryQuestion = "";
 		$new_RecoveryAnswer = "";
 		$infoID;
-	$get_record = mysqli_query($conn, "SELECT * FROM adminaccount WHERE adminid='$infoID'");
+	$get_record = mysqli_query($conn, "SELECT * FROM studentaccount WHERE studentid='$infoID'");
 
 				 $get_record_num = mysqli_num_rows($get_record);
 
@@ -49,7 +49,7 @@
 						
 					
 						
-						mysqli_query($conn, "UPDATE adminaccount SET password= '$new_Password' WHERE adminid = '$new_ID'");
+						mysqli_query($conn, "UPDATE studentaccount SET password= '$new_Password' WHERE studentid = '$new_ID'");
 						mysqli_query($conn,"INSERT INTO history (firstname,middlename,lastname,description,status,operation,date)
 														VALUES('$infofname','$infomname','$infolname','$History_Description','$History_Status','$History_Operation','$History_Date')");
 						echo '<script>alert("YOUR ACCOUNT INFORMATION HAS BEEN UPDATED SUCCESSFULLY ! PLEASE RE-LOGIN.");</script>';
@@ -146,23 +146,11 @@
 							</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> THESIS REPOSITORY SYSTEM</a></div>
 						<div class="collapse navbar-collapse" id="navcol-1">
 							<ul class="nav navbar-nav navbar-right">
-						  
-								<li class="dropdown"><a aria-expanded="false" href="admin_project_documents.php?"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a></li>
-								<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" value=""><i class="fa fa-fw fa-id-badge"></i> ACCOUNT MANAGEMENT</a>
-											<ul class="dropdown-menu" role="menu">
-												<li><a href="admin_new_user.php?"><i class="fa fa-fw fa-user-plus"></i> New Administrator</a></li>
-												<li><a href="admin_new_staff.php?"><i class="fa fa-fw fa-user-plus"></i> New Staff</a></li>
-												<li><a href="admin_clientaccounts.php?"><i class="fa fa-fw fa-users"></i> View Client List</a></li>
-											</ul>
-											</li>			
-									<li role="presentation">
-									<a href="historylogs.php?" style="color: white;"><i class="fa fa-bell"></i> HISTORY LOGS [ <?php echo $Value; ?> ]</a>
-									</li>
+								
 								<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-fw fa-user-circle"></i> <?php echo strtoupper($full); ?></a>
 									<ul class="dropdown-menu" role="menu">
-										<li><a href="admin_profile.php?"><i class="fa fa-fw fa-user"></i> Profile</a></li>
-										<li><a href="admin_setting.php?"><i class="fa fa-fw fa-gear"></i> Account Settings</a></li>
-										<li><a href="admin_college_setting.php?"><i class="fa fa-fw fa-gear"></i> College</a></li>
+										<li><a href="student_profile.php?"><i class="fa fa-fw fa-user"></i> Profile</a></li>
+										<li><a href="student_setting.php?"><i class="fa fa-fw fa-gear"></i> Account Settings</a></li>
 										<li><a href="http://facebook.com/"><i class="fa fa-fw fa-code"></i> Developer</a></li>
 										<li><a href="../logout.php?" name="logout" onclick="return confirm(' ARE YOU SURE YOU WANT TO LOGOUT ?')"><i class="fa fa-fw fa-sign-out"></i> Logout </a></li>
 									</ul>
@@ -176,7 +164,7 @@
 				<script src="../assets/js/jquery.min.js"></script>
 				<script src="../assets/bootstrap/js/bootstrap.min.js"></script>
 				
-	<center><img src="../assets/img/Avatar.png" width="6%" style="margin-top: 5px;"><br><h5 style="font-weight: bold;">ADMINISTRATOR</h5>
+	<center><img src="../assets/img/Avatar.png" width="6%" style="margin-top: 5px;"><br><h5 style="font-weight: bold;">STUDENT</h5>
 
 				<center><form method="POST" action="#" style="margin-top: 20px;">
 				<input type="hidden" name="new_ID" value="<?php echo $infoID; ?>"/>

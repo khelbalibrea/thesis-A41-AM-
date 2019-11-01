@@ -47,22 +47,13 @@
 										 <div class="collapse navbar-collapse" id="navcol-1">
 										<ul class="nav navbar-nav navbar-right">
 									  
-											 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a>
-											<ul class="dropdown-menu" role="menu">
-												<li><a href="admin_cbm.php?"><i class="fa fa-fw fa-file"></i> CBM</a></li>
-												<li><a href="admin_chtm.php?"><i class="fa fa-fw fa-file"></i> CHTM</a></li>
-												<li><a href="admin_cict.php?"><i class="fa fa-fw fa-file"></i> CICT</a></li>
-												<li><a href="admin_cte.php?"><i class="fa fa-fw fa-file"></i> CTE</a></li>
-												<li><a href="admin_cas.php?"><i class="fa fa-fw fa-file"></i> CAS</a></li>
-												<li><a href="admin_coe.php?"><i class="fa fa-fw fa-file"></i> COE</a></li>
-												<li><a href="admin_ccj.php?"><i class="fa fa-fw fa-file"></i> CCJ</a></li>
-											</ul>
-										</li>
+											 <li class="dropdown"><a aria-expanded="false" href="admin_project_documents.php?"><i class="fa fa-folder-open"></i> TCU PROJECT DOCUMENTS</a></li>
+								
 											<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" value=""><i class="fa fa-fw fa-id-badge"></i> ACCOUNT MANAGEMENT</a>
 											<ul class="dropdown-menu" role="menu">
 												<li><a href="admin_new_user.php?"><i class="fa fa-fw fa-user-plus"></i> New Administrator</a></li>
 												<li><a href="admin_new_staff.php?"><i class="fa fa-fw fa-user-plus"></i> New Staff</a></li>
-												<li><a href="admin_clientaccounts.php?"><i class="fa fa-fw fa-users"></i> View Client List</a></li>
+												<li><a href="admin_clientaccounts.php?"><i class="fa fa-fw fa-users"></i> View Student List</a></li>
 											</ul>
 											</li>		
 											<li role="presentation">
@@ -102,14 +93,14 @@
 									</tr>
 								</thead>
 								<?php
-										$client = "Q0xJRU5U";
-										$status = "QUNUSVZF";
+										$client = "student";
+										$status = "ACTIVE";
 										$full_name = "";
-										$view_query = mysqli_query($connection, "SELECT * FROM account WHERE userlevel='$client' AND status='$status'");
+										$view_query = mysqli_query($connection, "SELECT * FROM studentaccount WHERE userlevel='$client' AND status='$status'");
 											
 											while($row = mysqli_fetch_assoc($view_query)){
 											
-												$ID = $row["ID"]; 
+												$ID = $row["studentid"]; 
 												$db_Fname = $row["firstname"];
 												$db_Mname = $row["middlename"];
 												$db_Lname = $row["lastname"];

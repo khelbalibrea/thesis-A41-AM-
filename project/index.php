@@ -41,11 +41,11 @@ width: 70%;
           </div></nav>
 		<center><form method="POST" class="login-form">
 		<img src="assets/img/LOGIN.jpg" width="20%"><br>
-		<input type="text" id="user" class="input-lg" placeholder="Username" value="" name="txt-user" autocomplete="on" required maxlength="20" minlength="3"/>
+		<input type="text" id="user" class="input-lg" placeholder="Enter your ID" value="" name="ID" autocomplete="on" required maxlength="50" minlength="3"/>
 		<br>
-		<input type="password" id="pass" class="input-lg" placeholder="Password" value="" name="txt-pass" autocomplete="on" required maxlength="20" minlength="3">
+		<input type="password" id="pass" class="input-lg" placeholder="Password" value="" name="Password" autocomplete="on" required maxlength="20" minlength="8">
 		<br>
-		<input id="btn" class="btn btn-primary btn-lg" type="submit" name="btn-submit" value="Log In"><br>
+		<input id="btn" class="btn btn-primary btn-lg" type="submit" name="btn-submit" value="Sign In"><br>
 		<a class="links"style="font-weight: bold;" href="account_retrieval.php?"><i>Forgot Password?</i></a> <br>
 		<a class="links" style="font-weight: bold;" href="register.php?"><i>Register</i></a>
 		</form>  
