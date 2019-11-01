@@ -53,14 +53,16 @@ type of analytics
 -no of thesis co-authored by prof
 
 
-DO RESEARCH!
+DO RESEARCH! : 4/5
 
-*National Archiving of the philippines
-*DOST
-*IPO
-Do a Survey inside TCU
-Do a research in DOST about data analytics
+o National Archiving of the philippines
+o DOST
+o IPO
+x Do a Survey inside TCU
+o Do a research in DOST about data analytics
+
 DATA ANALYTICS
+
 Patent,Archiving,Copyright,Intellectual Property
 -how long should a thesis properly kept in storage
 
