@@ -74,6 +74,7 @@ $get_record = mysqli_query($conn, "SELECT * FROM studentaccount WHERE studentid=
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<title>Thesis Repository Management System</title>
+			 <link rel="icon" href="../assets/img/faviconTCU.png">
 			<?php
 			require '../zxc.php';
 			?>

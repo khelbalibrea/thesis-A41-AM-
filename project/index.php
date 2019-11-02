@@ -14,7 +14,8 @@ require 'login.php';
 	</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thesis Repository Management System</title>
+    <title>TCU - Thesis Repository System</title>
+	 <link rel="icon" href="assets/img/faviconTCU.png">
    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/user.css">
 	<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css"/>
@@ -37,10 +38,10 @@ width: 70%;
         <div class="container-fluid">
              <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-                </button><a class="navbar-brand navbar-link" href="#"><i class="fa fa-graduation-cap"></i> THESIS REPOSITORY SYSTEM</a></div>
+                </button><a class="navbar-brand navbar-link" href="#"><i class="fa fa-graduation-cap"></i> TCU - Thesis Repository System</a></div>
           </div></nav>
 		<center><form method="POST" class="login-form">
-		<img src="assets/img/LOGIN.jpg" width="20%"><br>
+		<img src="assets/img/Lagakanlogo.png" width="60%"><br>
 		<input type="text" id="user" class="input-lg" placeholder="Enter your ID" value="" name="ID" autocomplete="on" required maxlength="50" minlength="3"/>
 		<br>
 		<input type="password" id="pass" class="input-lg" placeholder="Password" value="" name="Password" autocomplete="on" required maxlength="20" minlength="8">

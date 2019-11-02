@@ -61,7 +61,8 @@
 						<head>
 							<meta charset="utf-8">
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<title>Project Repository Management System</title>
+							<title>TCU - Thesis Repository System</title>
+							 <link rel="icon" href="../assets/img/faviconTCU.png">
 							<?php
 							require '../zxc.php';
 							?>
@@ -88,7 +89,7 @@
 								<div class="container-fluid">
 									<div class="navbar-header">
 										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-										</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-fw fa-home"></i> PROJECT REPOSITORY MANAGEMENT SYSTEM</a></div>
+										</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-fw fa-home"></i>TCU - Thesis Repository System</a></div>
 								  </div></nav>
 							<center><form method="POST" style="margin-top: 10%;" action="#">
 								

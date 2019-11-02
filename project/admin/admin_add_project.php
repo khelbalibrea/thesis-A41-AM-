@@ -29,7 +29,8 @@
 						<head>
 							<meta charset="utf-8">
 							<meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<title>Thesis Repository Management System</title>
+							<title>TCU - Thesis Repository System</title>
+							 <link rel="icon" href="../assets/img/faviconTCU.png">
 							<?php
 							require '../zxc.php';
 							?>
@@ -86,7 +87,7 @@
 								<div class="container-fluid">
 									<div class="navbar-header">
 										<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
-										</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> THESIS REPOSITORY SYSTEM</a></div>
+										</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> TCU - Thesis Repository System</a></div>
 								  </div></nav>
 								  <h4 style="font-family: Georgia; margin-bottom: 2%;"><b><center><i class="fa fa-file-pdf-o"></i> NEW DOCUMENT</center></b></h4>
 							 	<center><form  action="admin_cbm_upload.php?" method="POST" enctype="multipart/form-data">
