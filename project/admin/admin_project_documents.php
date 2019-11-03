@@ -23,11 +23,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TCU - Thesis Repository System</title>
+	<title>TCU - THESIS REPOSITORY SYSTEM</title>
 	 <link rel="icon" href="../assets/img/faviconTCU.png">
-
+   	 <link href="../assets/css/main2.css" rel="stylesheet" />
 	<?php
-		require '../zxc.php';
+	require '../zxc.php';
 	?>
 
 	<style>
@@ -36,7 +36,10 @@
 			margin-bottom: 4px;
 		}
 	</style>
+	
 </head>
+
+
 
 <body>
 	<nav class="navbar navbar-inverse">
@@ -49,12 +52,12 @@
 					<span class="icon-bar"></span>
 				</button>
 				
-				<a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> TCU - Thesis Repository System</a>
+				<a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> TCU - THESIS REPOSITORY SYSTEM</a>
 			</div>
 			
 			<div class="collapse navbar-collapse" id="navcol-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown"><a aria-expanded="false" href="admin_project_documents.php?"><i class="fa fa-folder-open"></i> TCU - Thesis Repository System</a>
+						<li class="dropdown"><a aria-expanded="false" href="admin_project_documents.php?"><i class="fa fa-folder-open"></i> TCU - THESIS REPOSITORY SYSTEM</a>
 											
 										</li>
 						
@@ -85,149 +88,88 @@
 		</div>
 	</nav>
 	
-	<div class="container">
-		<form method="POST">
-			<select class="input" name="college_search">
-				<?php
-					$query = mysqli_query($conn, "SELECT collegename FROM college");
-					
-					while($row = mysqli_fetch_array($query)){
-						?>
-						
-						<option>
-							<?php
-								echo $row["collegename"];?>
-						</option>
-						
-						<?php
-					}
-				?>
-			</select>
+	
+	
+	
+	
+	
+ <div class="s130" id="s130left">
+		<form method="POST"  id= "searchForm" class="">
+		<center>
+	   <img src="../assets/img/LagakanLogo.png" width="20%"; ><br><br>
+	   </center>
 			
-			<input id="btn-reg" class="btn btn-primary btn-small" type="submit" name="btn-search" value="Search College">
+		 <div class="inner-form">
+          <div class="input-field first-wrap">
+            <div class="svg-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+              </svg>
+            </div>
+
+			  <input required type="text" name="searchword" id="search"  placeholder="What are you looking for?" maxlength="25" />
+				
+	
+          </div>
+          <div class="input-field second-wrap">
+          <!--  <button class="btn-search" type="button">SEARCH</button> -->
 			
-			<br>
-			<br>
+            <input type = "submit" class ="btn-search" name="BTN1" value="Go" autocomplete ="off" onMouseDown="active();" onBlur="inactive();" />
+
+
+          </div>
+        </div>
+        <span class="info">ex. Technology,Food,Business,Engineering</span>
+			
 		
-			<h2 style="font-family: Georgia;"><b><center> COLLEGES (TCU)</center></b></h4>
-			<!-- <img src="../assets/img/cbm.jpeg" width="8%"></img> -->
+<!--<h2 style="font-family: Georgia;"><b><center> COLLEGES (TCU)</center></b></h4>-->
+	
 													
-													<a  role="button" class="btn btn-primary btn-med" style="margin-right: 100%;" name="add-project" href="admin_cbm_project.php?"><i class ="fa fa-fw fa-plus"></i> Store Project</a>
-												<br><br><div class="table-responsive">
-													<table width="100%" id="dataTable" class="table table-striped table-bordered table-hover">
-												
-												
-												<thead>
-												<tr>
-													<th>Student Name</th>
-													<th>Course</th>
-													<th>Project Type</th>
-													<th>Project Description</th>
-													<th>Date Uploaded<br>( YYYY - MM - DD )</th>
-													<th>Option</th>
-												</tr>
-											</thead>
-											<?php
-													$status = 1;
-													$current_college = "";
+													<a  role="button" class="btn btn-primary btn-med" style="margin-left: 88%;" name="add-project" href="admin_cbm_project.php?"><i class ="fa fa-fw fa-plus"></i> Store Project</a>
+													<br><br>
+													<label>Filter by category:</label><br>
+													<select name="cb1" class="input-sm" required style="margin-left: 12%;">
+													<option name="cb1" value="">Year</option>
+													<option name="cb1" value="2015">2015</option>
+													<option name="cb1" value="2016">2016</option>
+													<option name="cb1" value="2017">2017</option>
+													<option name="cb1" value="2018">2018</option>
+													<option name="cb1" value="2019">2019 </option>
+													<option name="cb1" value="2020">2020</option>
+													</select>
+													<select class="input-sm" required name="department">
+													<option name="department" value="">College</option>
+													<option name="department" value="College of Information and Communication Technology" >CICT</option>
+													<option name="department" value="CHTM" >CHTM</option>
+													<option name="department" value="CET" >CET</option>
+													<option name="department" value="CBM" >CBM</option>
+													<option name="department" value="CCJ" >CCJ</option>
+													<option name="department" value="CED" >CED</option>
+													<option name="department" value="CAS" >CAS</option>
+													</select>
 													
-													if(isset($_POST['btn-search'])){
-														$selected_key = $_POST["college_search"];
-														//$dept = "College of Information and Computer Technology";
-														
-														$view_query1 = mysqli_query($conn, "SELECT * FROM document WHERE department='$selected_key'");
-														
-														while($row1 = mysqli_fetch_assoc($view_query1)){
-															$ID = $row1["ID"]; 
-															$db_Fname = $row1["firstname"]; 
-															$db_Mname = $row1["middlename"]; 
-															$db_Lname = $row1["lastname"]; 
-															$Course = $row1['course'];
-															$ProjectType = $row1['project_type'];
-															$Description = $row1['description'];
-															$File = $row1["file"];
-															$DateUploaded = $row1["date_uploaded"];
-															$hide = "";
-															
-															$full_name = ucfirst($db_Lname) . ", " . ucfirst($db_Fname) . " " . ucfirst($db_Mname[0]).".".($hide);
-															// $full_name = ucfirst($db_Fname) . " " . ucfirst($db_Mname[0]) . ". " . ucfirst($db_Lname);
-															
-															echo "
-															<tr> 
-																<td>$full_name</td>
-																<td>$Course</td>
-																<td>$ProjectType</td>
-																<td>$Description</td>
-																<td>$DateUploaded</td>		
-																<td>
-															
-																<center><a id='edit' class='btn btn-success'  href='admin_cbm_view.php?ID=$ID'><i class='fa fa-file-pdf-o'></i> View</a> 
-																<center><a id='edit' class='btn btn-warning'  href='admin_cbm_edit.php?ID=$ID'><i class='fa fa-fw fa-pencil'></i> Edit</a> 
-																</td>	
-																</td>
-																";
-														}
-														$current_college = $selected_key;
-														
-														$query1 = mysqli_query($conn, "SELECT * FROM college WHERE collegename ='$current_college'");
-														$name = "";
-														$code = "";
-														
-														while($row2 = mysqli_fetch_assoc($query1)){
-															$name = $row2["collegename"];
-															$code = $row2["collegecode"];
-														}
-													} else {
-														//$Dept = "College of Information Computer Technology";
-													
-														$view_query = mysqli_query($connection, "SELECT * FROM document");
-														//$view_query3 = mysqli_query($connection, "SELECT * FROM document WHERE department='$Dept'");
-															
-														while($row = mysqli_fetch_assoc($view_query)){
-														
-															$ID = $row["ID"]; 
-															$db_Fname = $row["firstname"]; 
-															$db_Mname = $row["middlename"]; 
-															$db_Lname = $row["lastname"]; 
-															$Course = $row['course'];
-															$ProjectType = $row['project_type'];
-															$Description = $row['description'];
-															$File = $row["file"];
-															$DateUploaded = $row["date_uploaded"];
-															$hide = "";
+												<select class="input-sm" required name="project_type">
+													<option name="project_type" value="">Project type</option>
+													<option name="project_type" value="Research">Research</option>
+													<option name="project_type" value="Thesis">Thesis</option>
+													<option name="project_type" value="Case study">Case study</option>
+													<option name="project_type" value="Feasibility study" >Feasibility study</option>
+													</select>
+													<button name="btn1" class="btn btn-danger btn-sm"><i class ="fa fa-fw fa-location-arrow"></i> Search</button>
 												
-															$full_name = ucfirst($db_Lname) . ", " . ucfirst($db_Fname) . " " . ucfirst($db_Mname[0]).".".($hide);
-															// $full_name = ucfirst($db_Fname) . " " . ucfirst($db_Mname[0]) . ". " . ucfirst($db_Lname);
-																echo "
-																<tr> 
-																	<td>$full_name</td>
-																	<td>$Course</td>
-																	<td>$ProjectType</td>
-																	<td>$Description</td>
-																	<td>$DateUploaded</td>		
-																	<td>
-																
-																	<center><a id='edit' class='btn btn-success'  href='admin_cbm_view.php?ID=$ID'><i class='fa fa-file-pdf-o'></i> View</a> 
-																	<center><a id='edit' class='btn btn-warning'  href='admin_cbm_edit.php?ID=$ID'><i class='fa fa-fw fa-pencil'></i> Edit</a> 
-																	</td>	
-																	</td>
-														
-																
-															
-															";
-														}
-														
-														$current_college = "ALL COLLEGES";
-														$name = "ALL COLLEGES";
-														$code = "TCU";
-													}
-									?>
-											
-											</table></div></form></div>
+												<br><br></div></form></div>
+													 <script src="js/extention/choices.js"></script>
 													</body>
-										<?php
+												
 										
-										require '../xcv.php';
-										?>
 													
+													  
+
+			  
+
+				<?php
+				
+				require '../xcv.php';
+				
+				?>
 													</html>
