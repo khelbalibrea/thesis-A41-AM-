@@ -19,7 +19,7 @@ if(isset($_FILES['file'])){
 	$title = $_POST['DocumentTitle'];
 	$Course = $_POST['Course'];
 	$new_course = $_POST['Course'];
-	$College = $_POST['College'];
+	$College = $_POST['Department'];
 	$ProjectType = $_POST['Proj-type'];
 	$DD = $_POST['Description'];
 	$DateUpload = $_POST['DateUpload'];
@@ -37,6 +37,18 @@ if(isset($_FILES['file'])){
 	$panel3 = $_POST['panel3'];
 	$panel4 = $_POST['panel4'];
 	$panel5 = $_POST['panel5'];
+	
+	//For urls
+	$url1 = $_POST['url1'];
+	$url2 = $_POST['url2'];
+	$url3 = $_POST['url3'];
+	$url4 = $_POST['url4'];
+	$url5 = $_POST['url5'];
+	$url6 = $_POST['url6'];
+	$url7 = $_POST['url7'];
+	$url8 = $_POST['url8'];
+	$url9 = $_POST['url9'];
+	$url10 = $_POST['url10'];
 		
 	// File Properties
 	$file_name = $file['name'];
@@ -57,9 +69,10 @@ if(isset($_FILES['file'])){
 		
 		
 		mysqli_query($conn, "INSERT INTO uploads (documenttitle, course , department , project_type, description , file , dateuploaded, author1, 
-		author2, author3, author4, author5, panel1, panel2, panel3, panel4, panel5) 
+		author2, author3, author4, author5, panel1, panel2, panel3, panel4, panel5, url1, url2, url3, url4, url5, url6, url7, url8, url9, url10) 
 VALUES('$title','$Course','$College','$ProjectType','$DD','$file_name_new','$DateUpload', '$author1', '$author2', '$author3', '$author4', 
-		'$author5', '$panel1', '$panel2', '$panel3', '$panel4', '$panel5')");
+		'$author5', '$panel1', '$panel2', '$panel3', '$panel4', '$panel5', '$url1', '$url2', '$url3', '$url4', '$url5', '$url6', '$url7', '$url8', 
+		'$url9', '$url10')");
 
 		
 		echo '<script>alert("NEW DOCUMENT WAS UNDER APPROVAL");</script>';

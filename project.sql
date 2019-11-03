@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2019 at 07:52 AM
+-- Generation Time: Nov 03, 2019 at 10:26 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -398,15 +398,28 @@ CREATE TABLE `uploads` (
   `panel2` varchar(100) NOT NULL,
   `panel3` varchar(100) NOT NULL,
   `panel4` varchar(100) NOT NULL,
-  `panel5` varchar(100) NOT NULL
+  `panel5` varchar(100) NOT NULL,
+  `url1` varchar(250) NOT NULL,
+  `url2` varchar(250) NOT NULL,
+  `url3` varchar(250) NOT NULL,
+  `url4` varchar(250) NOT NULL,
+  `url5` varchar(250) NOT NULL,
+  `url6` varchar(250) NOT NULL,
+  `url7` varchar(250) NOT NULL,
+  `url8` varchar(250) NOT NULL,
+  `url9` varchar(250) NOT NULL,
+  `url10` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `uploads`
 --
 
-INSERT INTO `uploads` (`id`, `documenttitle`, `course`, `department`, `project_type`, `description`, `file`, `dateuploaded`, `author1`, `author2`, `author3`, `author4`, `author5`, `panel1`, `panel2`, `panel3`, `panel4`, `panel5`) VALUES
-(1, 'try', 'BS in Computer Science', 'College', 'OJT', 'dsghfghj', '5dbe74f3f21dc1.46997957.pdf', '2015-12-31', '1', 'N/A', 'N/A', 'N/A', 'N/A', '1', '2', 'N/A', 'N/A', 'N/A');
+INSERT INTO `uploads` (`id`, `documenttitle`, `course`, `department`, `project_type`, `description`, `file`, `dateuploaded`, `author1`, `author2`, `author3`, `author4`, `author5`, `panel1`, `panel2`, `panel3`, `panel4`, `panel5`, `url1`, `url2`, `url3`, `url4`, `url5`, `url6`, `url7`, `url8`, `url9`, `url10`) VALUES
+(1, 'try', 'BS in Computer Science', 'College', 'OJT', 'dsghfghj', '5dbe74f3f21dc1.46997957.pdf', '2015-12-31', '1', 'N/A', 'N/A', 'N/A', 'N/A', '1', '2', 'N/A', 'N/A', 'N/A', '', '', '', '', '', '', '', '', '', ''),
+(2, 'Thesis Repository', 'BS in Computer Science', 'College of Information Computer Technology', 'Feasibility Study', 'gcawbkgbjrsgj,svjrdkzvskhgrshvgislrheshvgishegsihvugl', '5dbe9ac19b4546.93021243.pdf', '2019-10-28', 'Sean', 'Jas', 'Michael', 'Matthew', 'N/A', 'qweqw', 'qweq', 'qweqeqw', 'qeqweqeqeqe', 'N/A', 'asfhgbvsjcgfkabwgskbecgk', 'kfvuyfvyjfvbkyfvjfvhgcfdgdfhm', 'jfctyjjvhcdhvjmvfghghbgjyhuh', 'hyuhghygftgvbhjgtfrtyujnhbgfrtyh', 'hgdjgnfhdjhgcdrsxgchfjbhfjyk', 'jydvtdrchcdjvjhvfbkjvgbjhjfvjbcv', 'chcjcyjkjwdwtjvdfywfbtdtfjbwfjtbfdybfwdjyfwdj', 'fjechgetbcgfesukfbcgsekucgfse', 'fdjcwhegfcawbucgfbawuiegfcawubgxegvrs', '3'),
+(3, 'try', '', 'College of Information Computer Technology', 'Research', 'jjjjjjj', '5dbe9b835417a4.58528487.pdf', '2019-11-06', '1', 'N/A', 'N/A', 'N/A', 'N/A', '1', 'N/A', 'N/A', 'N/A', 'N/A', '1', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'),
+(4, 'try', '', '<br /><b>Notice</b>:  Undefined variable: Department in <b>C:xampphtdocsprojstudentstudent_add_project.php</b> on line <b>694</b><br />', 'OJT', 'q', '5dbe9c4496a171.08759363.pdf', '2019-11-21', '1', 'N/A', 'N/A', 'N/A', 'N/A', '1', 'N/A', 'N/A', 'N/A', 'N/A', '1', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A');
 
 --
 -- Indexes for dumped tables
@@ -516,7 +529,7 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
