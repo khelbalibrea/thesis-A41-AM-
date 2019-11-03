@@ -21,40 +21,40 @@ Recovery Password
 user level
 
 Database 
-??College/Course
-??College /Course/Kind of project (Thesis or feasib)
-??Title/Thesis code /Keywords/URL,
+College/Course
+College /Course/Kind of project (Thesis or feasib)
+Title/Thesis code /Keywords/URL,
 
-??Staff :
-??Activation of thesis
+Staff :
+Activation of thesis
 
-??ADD UP: 
-??Filter of 25 datas to show 
-??Insert - Email registration 
-??Email Notification ("Notify me" activation )
+ADD UP: 
+Filter of 25 datas to show 
+Insert - Email registration 
+Email Notification ("Notify me" activation )
 -once na may bagong data about specific topic manonotify siya via email 
-??Terms and Condition/Privacy Notice (LAW) upon register
-??Admin activation of users 
-??Count ilang beses na open ung link 
+Terms and Condition/Privacy Notice (LAW) upon register
+Admin activation of users 
+Count ilang beses na open ung link 
 
 
-??Clean :
-??Forgot Password
-??Registration add Emails
-??Upload data - ??IMPORTANT ??
-??pag mag reregister Dapat department muna ung lalagay
+Clean :
+Forgot Password
+Registration add Emails
+Upload data -
+pag mag reregister Dapat department muna ung lalagay
 pag department ung lalagay ung combo box na susunod is course under that college. 
-??Ung mag uupload diba lalagyan ng course and college, no need to write ung Department niya , need to filter if CHTM -Feasib at Thesis lang. 
+Ung mag uupload diba lalagyan ng course and college, no need to write ung Department niya , need to filter if CHTM -Feasib at Thesis lang. 
 
-??ANALYTICS??
-??Related Topics
+ANALYTICS
+Related Topics
 -once na nag search about topic may lalabas sa gilid na related topic from this year to 5 years ago
-??Adviser most performing 
-??Panel
-??Thesis upload per College
-??Yearls Increase of thesis in TCU graphh
-??Topic bar graph
-??Most Viewed thesis
+Adviser most performing 
+Panel
+Thesis upload per College
+Yearls Increase of thesis in TCU graphh
+Topic bar graph
+Most Viewed thesis
 
 
 DATA INTEGRITY: 6/7 done
@@ -95,6 +95,7 @@ chrome
 safari 
 edge
 5.responsive design?(NOT IN MOBILE)
+<<<<<<< HEAD
 6.Content Counting - an analytics 
 7.how we control the access?
 8.what data will the system going to analyze
@@ -107,6 +108,24 @@ edge
 
 
 ------------------------------------
+=======
+
+Change01:
+- added crud to colleges (khel)
+- added crud to course (khel)
+
+Change02: (Oct. 5)
+- clean forgot password (khel)
+
+Change03: (Oct. 12)
+- added masterlist in database
+- registration of student via masterlist
+
+Todo:
+- improve 'forgot password' (done)
+
+
+>>>>>>> 62ba4672d2daaf40938a366636c60259dfd6e842
 SCOPE
 -SEO
 -viewstudent type of study
