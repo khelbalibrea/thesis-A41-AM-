@@ -89,9 +89,70 @@ firefox
 chrome
 safari 
 edge
-5.responsive design?(MOBILE)
+5.responsive design?(NOT IN MOBILE)
+
+Change01:
+- added crud to colleges (khel)
+- added crud to course (khel)
+
+Change02: (Oct. 5)
+- clean forgot password (khel)
+
+Change03: (Oct. 12)
+- added masterlist in database
+- registration of student via masterlist
+
+Todo:
+- improve 'forgot password' (done)
 
 
+SCOPE
+-SEO
+-viewstudent type of study
+
+LIMITATIONS
+-for TCU
+-Hardware storage
+
+ANALYTICS
+-suggested list of thesis
+-terms categorized by College
+CS-
+CHTM - Feasib+thesis 5 years
+CRIM-thesis 5 years
+BIG DATA-NATUTULOG NA DATA
+PAANO MAGAGAMIT
+
+
+TYPES OF DA
+1.Prescriptive
+2.Descriptive
+3.
+
+
+STUDENT ROLE
+-search 
+-View analytics
+-upload file
+
+AUTHOR ROLE
+-search
+-view analytics
+
+STAFF/FACULTY ROLE
+-search
+-view analytics
+-Upload File
+-Confirm Pending approval
+
+ADMIN ROLE
+-search
+-view analytics
+-Upload File
+-Confirm Pending approval
+-Add staff/admin
+-View List Student
+-Search student
 
 
 

@@ -67,7 +67,7 @@
 				
 				<meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<title>TCU - Thesis Repository System</title>
+				<title>TCU - THESIS REPOSITORY SYSTEM</title>
 				 <link rel="icon" href="../assets/img/faviconTCU.png">
 				<?php
 				require '../zxc.php';
@@ -132,7 +132,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
-							</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> TCU - Thesis Repository System</a></div>
+							</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> TCU - THESIS REPOSITORY SYSTEM</a></div>
 						<div class="collapse navbar-collapse" id="navcol-1">
 							<ul class="nav navbar-nav navbar-right">
 							

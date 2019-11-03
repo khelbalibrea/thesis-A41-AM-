@@ -15,8 +15,13 @@
 			</script>';
 				}
 			
+		
+			
 			
 			?>
+			
+			
+					
 
 			<!DOCTYPE html>
 			<html>
@@ -24,7 +29,7 @@
 			
 				<meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<title>Thesis Repository Management System</title>
+				<title> TCU - THESIS REPOSITORY SYSTEM</title>
 				 <link rel="icon" href="../assets/img/faviconTCU.png">
 				  <link href="../assets/css/main2.css" rel="stylesheet" />
 				<?php
@@ -41,7 +46,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
-							</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> THESIS REPOSITORY SYSTEM</a></div>
+							</button><a class="navbar-brand navbar-link" href="index.php?"><i class="fa fa-graduation-cap"></i> TCU - THESIS REPOSITORY SYSTEM</a></div>
 						<div class="collapse navbar-collapse" id="navcol-1">
 							<ul class="nav navbar-nav navbar-right">
 							   	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-fw fa-user-circle"></i> <?php echo strtoupper($full); ?></a>
@@ -84,25 +89,13 @@
     </script> 
 
  <!-- </center> -->
-  <body>
+ 
     <div class="s130" id="s130left">
       <form method="POST"  id= "searchForm" class="">
 		<center>
-	  
-	   <img src="../assets/img/LagakanLogo.png" width="60%"; ><br><br>
+	   <img src="../assets/img/LagakanLogo.png" width="20%"; ><br><br>
 	   </center>
-        <?php
-          if(isset($_POST['searchword'])){
-          $searchword = $_POST['searchword'];
-            $sql ="SELECT * FROM document WHERE project_type LIKE '%$searchword%'  OR description LIKE '%$searchword%'";
-
-            $result = $conn->query($sql); // eto na ung pinaka connection nya 
-          }else {
-              $sql = "SELECT * FROM document"; //KAPAG WALANG LAMAN UNG SEARCH BABALIK ULET UNG MGA LAMAN NG TABLE MO
-               $result = $conn->query($sql);
-             }  
-        
-          ?>
+      
 		  
 		 
         <div class="inner-form">
@@ -113,40 +106,88 @@
               </svg>
             </div>
 
-			
-
-            <input type="text" name="searchword" id="search"  placeholder="What are you looking for?" maxlength="25" />
+            <input required type="text" name="searchword" id="search"  placeholder="What are you looking for?" maxlength="25" />
+				
 
           </div>
           <div class="input-field second-wrap">
           <!--  <button class="btn-search" type="button">SEARCH</button> -->
 			
-            <input type = "submit" class ="btn-search" value="Go" autocomplete ="off" onMouseDown="active();" onBlur="inactive();" />
+            <input type = "submit" class ="btn-search" name="BTN1" value="Go" autocomplete ="off" onMouseDown="active();" onBlur="inactive();" />
 
 
           </div>
         </div>
         <span class="info">ex. Technology,Food,Business,Engineering</span>
-
+<!--<h2 style="font-family: Georgia;"><b><center> COLLEGES (TCU)</center></b></h4>-->
+	
+													
+													<a  role="button" class="btn btn-primary btn-med" style="margin-left: 88%;" name="add-project" href="admin_cbm_project.php?"><i class ="fa fa-fw fa-plus"></i> Store Project</a>
+													<br><br>
+													<label>Filter by category:</label><br>
+													<select name="cb1" class="input-sm" required style="margin-left: 12%;">
+													<option name="cb1" value="">Year</option>
+													<option name="cb1" value="2015">2015</option>
+													<option name="cb1" value="2016">2016</option>
+													<option name="cb1" value="2017">2017</option>
+													<option name="cb1" value="2018">2018</option>
+													<option name="cb1" value="2019">2019 </option>
+													<option name="cb1" value="2020">2020</option>
+													</select>
+													<select class="input-sm" required name="department">
+													<option name="department" value="">College</option>
+													<option name="department" value="College of Information and Communication Technology" >CICT</option>
+													<option name="department" value="CHTM" >CHTM</option>
+													<option name="department" value="CET" >CET</option>
+													<option name="department" value="CBM" >CBM</option>
+													<option name="department" value="CCJ" >CCJ</option>
+													<option name="department" value="CED" >CED</option>
+													<option name="department" value="CAS" >CAS</option>
+													</select>
+													
+												<select class="input-sm" required name="project_type">
+													<option name="project_type" value="">Project type</option>
+													<option name="project_type" value="Research">Research</option>
+													<option name="project_type" value="Thesis">Thesis</option>
+													<option name="project_type" value="Case study">Case study</option>
+													<option name="project_type" value="Feasibility study" >Feasibility study</option>
+													</select>
+													<button name="btn1" class="btn btn-danger btn-sm"><i class ="fa fa-fw fa-location-arrow"></i> Search</button>
+												
+												<br><br></div></form></div>
+													 <script src="js/extention/choices.js"></script>
+													
 <?php
-        
+        if(isset($_POST['BTN1'])){
+		$searchword = mysqli_real_escape_string($conn, $_POST['searchword']);
+		
+            $sql ="SELECT * FROM document WHERE project_type LIKE '%$searchword%' OR description LIKE '%$searchword%' ";
+
+            $result = $conn->query($sql); // eto na ung pinaka connection nya 
           // echo $num_rows;
-          
-         while($row = $result->fetch_array()) {
+         while($row = $result->fetch_array()) {		  
+		 $sql1 = mysqli_num_rows($result);
+          if($sql1 == true){
+
             $id = $row['ID']; 
             $prodtype = $row['project_type'];
             $desc = $row['description'];
               
             //echo '<h3>' . $prodtype . '</h3><p> ' . $desc . '</p><br/>';
-            echo '<h3><a href = "' . $id. '.php"> ' . $prodtype . '</h3><p> ' . $desc . '</p><br/>';
-          }
-          
+            echo '<h3><a href = "result.php?ID='.$id.'"> ' . $prodtype . '</h3><p> ' . $desc . '</p><br/>';
+		  }
+          else{
+			
+				echo "<label style='color: red;'>POGI MO MICHAEL</label>";
+			}
+		 }
+		}
         ?>
+
       </form>
     </div>
 
-    <script src="js/extention/choices.js"></script>
-
+										
 			  
 
 				<?php
