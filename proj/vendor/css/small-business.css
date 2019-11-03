@@ -1,0 +1,28 @@
+/*!
+ * Start Bootstrap - Small Business (http://startbootstrap.com/template-overviews/small-business)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-small-business/blob/master/LICENSE)
+ */
+
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+.blinking{
+font-weight: bold;
+animation: blinkingText 1.2s infinite;
+}
+
+@keyframes blinkingText{
+
+0% { color: yellow; }
+50% { color: transparent; }
+100% { color: yellow; }
+
+}
